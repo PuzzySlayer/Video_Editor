@@ -1,0 +1,25 @@
+# Video/audio originals, exports, and generated media
+*.mp4
+*.mov
+*.m4v
+*.insv
+*.360
+*.wav
+*.aiff
+*.mp3
+*.aac
+*.flac
+*.dng
+*.heic
+*.psd
+
+# CapCut project data and generated assets
+**/03_PROJECT_FILES/CAPCUT/**
+**/CapCut/User Data/**
+**/CapCut/**/Cache/**
+**/CapCut/**/Proxy/**
+
+# Common local/system files
+.DS_Store
+._*
+Thumbs.db
