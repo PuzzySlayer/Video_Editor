@@ -23,3 +23,6 @@
 .DS_Store
 ._*
 Thumbs.db
+
+# Channel strategy and stats live in a separate private repo
+channel/
