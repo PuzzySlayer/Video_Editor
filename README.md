@@ -8,4 +8,8 @@
 - [`style/agents/FOOTAGE_AGENT.md`](style/agents/FOOTAGE_AGENT.md) — workflow สำหรับตรวจ เลือก และเตรียมฟุตเทจจาก Osmo 360, DJI Action 6 และ iPhone
 - [`projects/README.md`](projects/README.md) — โครงสร้างโฟลเดอร์โปรเจกต์และวิธีทำงานจาก External SSD ด้วย CapCut
 
+## Skills สำหรับ Claude Code
+
+- [`.claude/skills/srt/`](.claude/skills/srt/SKILL.md) — `/srt` export เสียงคลิปเป็น .mp3 ถอดเสียงด้วย Whisper ในเครื่อง แล้วทำซับ .srt ภาษาไทยตามกติกาซับของเจ้าของงาน (ต้องมี `ffmpeg`, `whisper-cli` และโมเดล `~/.cache/whisper-cpp/ggml-large-v3-turbo-q5_0.bin`)
+
 เอกสารและโครงสร้างโฟลเดอร์เท่านั้น ฟุตเทจต้นฉบับ ไฟล์ส่งออก และ draft ของ CapCut เก็บแยกบน External SSD
