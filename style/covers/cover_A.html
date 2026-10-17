@@ -1,0 +1,47 @@
+<!doctype html>
+<!--
+  ปกประจำช่อง แบบ A (TikTok 9:16, 1080x1920)
+  ใช้ผ่าน make_cover.sh — ส่งค่าทาง query string:
+    bg   = path รูปพื้นหลัง (เฟรมจากคลิป 1080x1920)
+    l1   = บรรทัดบน สีขาว (ภาษาอังกฤษตัวพิมพ์ใหญ่ เช่น ชื่อแบรนด์)
+    l2   = บรรทัดล่าง สีเหลือง (ชื่อรุ่น/หัวข้อหลัก)
+    sub  = ประโยคไทยสั้น ๆ ใต้ชื่อ (จุดขายเดียว)
+-->
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Kanit:wght@800&display=block" rel="stylesheet">
+<style>
+  html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+  .bg { position: absolute; inset: 0; background-position: center; background-size: cover; }
+  .shade { position: absolute; left: 0; right: 0; top: 0; height: 760px; background: linear-gradient(#000c, #0000); }
+  .t {
+    position: absolute; top: 120px; width: 100%; text-align: center;
+    font-family: Anton, sans-serif; color: #fff; font-size: 190px; line-height: .98; letter-spacing: 2px;
+    -webkit-text-stroke: 10px #000; paint-order: stroke fill; text-shadow: 0 10px 0 #000;
+    white-space: nowrap;
+  }
+  .t span { color: #FFD21F; }
+  .s {
+    position: absolute; top: 560px; width: 100%; text-align: center;
+    font-family: Kanit, sans-serif; font-weight: 800; font-size: 72px; color: #fff;
+    -webkit-text-stroke: 8px #000; paint-order: stroke fill;
+  }
+</style>
+<div class="bg" id="bg"></div>
+<div class="shade"></div>
+<div class="t"><span id="l1"></span><br><span id="l2" style="color:#FFD21F"></span></div>
+<div class="s" id="sub"></div>
+<script>
+  const q = new URLSearchParams(location.search);
+  document.getElementById('bg').style.backgroundImage = `url("${q.get('bg') || ''}")`;
+  const l1 = document.getElementById('l1'); l1.textContent = q.get('l1') || ''; l1.style.color = '#fff';
+  document.getElementById('l2').textContent = q.get('l2') || '';
+  document.getElementById('sub').textContent = q.get('sub') || '';
+  // ย่อขนาดอัตโนมัติถ้าชื่อยาวเกินความกว้างจอ
+  const t = document.querySelector('.t');
+  const l2 = document.getElementById('l2');
+  const widest = () => Math.max(l1.offsetWidth, l2.offsetWidth);
+  let size = 190;
+  document.fonts.ready.then(() => {
+    while (widest() > 1000 && size > 90) { size -= 6; t.style.fontSize = size + 'px'; }
+  });
+</script>
